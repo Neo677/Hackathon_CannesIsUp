@@ -1,0 +1,4 @@
+function calculateCapacityUsage(realTimeData) {
+    return fetch('https://api.amadeus.com/crowd-data')
+        .then(data => data.capacity / MAX_CAPACITY);
+} 

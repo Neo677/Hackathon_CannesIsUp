@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrière-Pays Cannois</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), img('hackaton/lavende.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .villages-section {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), img('hackaton/lavende.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 80px 0;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .activity-image {
+            height: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover .activity-image {
+            transform: scale(1.05);
+        }
+
+        .eco-score {
+            background: rgba(255,255,255,0.95);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .activity-details {
+            padding: 1.5rem;
+        }
+
+        .add-to-cart {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background: #27ae60;
+        }
+
+        .map-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="hackaton/logo.webp" alt="Cannes Autrement" class="logo">
+                <span class="logo-text">Cannes Autrement</span>
+            </a>
+            
+            <nav class="main-nav">
+                <a href="index_resa_1.html" class="nav-link">Arrière-Pays</a>
+                <a href="index_resa_2.html" class="nav-link">Cinéma</a>
+                <a href="index_resa_3.html" class="nav-link">Littoral</a>
+                <a href="index_resa_4.html" class="nav-link">Sport</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="auth-btn">Connexion</button>
+                <button class="auth-btn primary">Inscription</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>L'Essence du Sud</h1>
+                <p class="subtitle">Découvrez nos parcours sportifs & culturels</p>
+            </div>
+        </section>
+
+        <!-- Section villages mise à jour -->
+        <section id="villages" class="villages-section">
+            <div class="container">
+                <h2>Nos circuits Arrière-Pays</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-image" style="background-image: url('hackaton/bike_pro.jpg')">
+                            <div class="eco-score">⭐ 4.8</div>
+                        </div>
+                        <h3>Randonnée Gourdon</h3>
+                        <div class="activity-details">
+                            <p>15km | D+ 600m | ⏱ 4h</p>
+                            <button class="add-to-cart" data-name="Randonnée Gourdon" data-price="45" data-eco="4.8">
+                                + €45
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- New village cards -->
+                    <div class="activity-card">
+                        <div class="activity-image" style="background-image: url('hackaton/la-citadelle-d-entrevaux.jpg')">
+                            <div class="eco-score">⭐ 4.9</div>
+                        </div>
+                        <h3>Citadelle d'Entrevaux</h3>
+                        <div class="activity-details">
+                            <p>Visite historique | Architecture militaire</p>
+                            <button class="add-to-cart" data-name="Entrevaux" data-price="35" data-eco="4.9">
+                                + €35
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-image" style="background-image: url('hackaton/Roquesteron.jpeg')">
+                            <div class="eco-score">⭐ 4.7</div>
+                        </div>
+                        <h3>Roquesteron</h3>
+                        <div class="activity-details">
+                            <p>Marché provençal | Randonnée olfactive</p>
+                            <button class="add-to-cart" data-name="Roquesteron" data-price="40" data-eco="4.7">
+                                + €40
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carte interactive avec parcours -->
+        <section id="parcours" class="map-section">
+            <div class="container">
+                <h2>Notre circuit phare</h2>
+                <div id="map" style="width: 100%; height: 400px;"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <!-- Load Google Maps JavaScript API first -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZCZS0-1vbpq9mcS0kzE-E-jS-iEoJv8c&callback=initMap">
+    </script>
+    <!-- Then initialize the map -->
+    <script>
+        function initMap() {
+            // Check if Google Maps is loaded
+            if (typeof google === 'undefined') {
+                console.error('Google Maps API not loaded');
+                return;
+            }
+
+            // Check if map container exists
+            const mapElement = document.getElementById("map");
+            if (!mapElement) {
+                console.error('Map container not found');
+                return;
+            }
+
+            const map = new google.maps.Map(mapElement, {
+                zoom: 10,
+                center: { lat: 43.7208, lng: 6.9789 }, // Centre sur la région
+                mapTypeId: 'terrain',
+                styles: [
+                    {
+                        featureType: "poi",
+                        stylers: [{ visibility: "off" }] // Masque les POI
+                    },
+                    {
+                        featureType: "transit",
+                        stylers: [{ visibility: "off" }] // Masque les transports
+                    }
+                ]
+            });
+
+            // Liste des marqueurs
+            const locations = [
+                { lat: 43.5513, lng: 7.01195, title: "Cannes" },
+                { lat: 43.6973, lng: 7.1217, title: "Saint-Paul-de-Vence" },
+                { lat: 43.7206, lng: 6.9774, title: "Gourdon" },
+                { lat: 43.8833, lng: 7.0167, title: "Roquesteron" },
+                { lat: 43.9500, lng: 7.0000, title: "Touët-sur-Var" },
+                { lat: 43.9500, lng: 6.8167, title: "Entrevaux" },
+                { lat: 43.5989, lng: 6.9961, title: "Mougins" }
+            ];
+
+            // Créer un tableau de points pour le chemin
+            const pathCoordinates = locations.map(location => ({
+                lat: location.lat,
+                lng: location.lng
+            }));
+
+            // Créer le chemin qui relie tous les points
+            const path = new google.maps.Polyline({
+                path: pathCoordinates,
+                geodesic: true,
+                strokeColor: '#2ecc71',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            // Ajouter le chemin à la carte
+            path.setMap(map);
+
+            // Ajout des marqueurs personnalisés
+            locations.forEach(location => {
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: location.title,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 8,
+                        fillColor: '#2ecc71',
+                        fillOpacity: 0.9,
+                        strokeColor: '#ffffff',
+                        strokeWeight: 2
+                    },
+                    animation: google.maps.Animation.DROP
+                });
+            });
+        }
+
+        // Add error handling for Google Maps loading
+        window.gm_authFailure = function() {
+            console.error('Google Maps authentication failed');
+            document.getElementById('map').innerHTML = 'Sorry, there was an error loading the map.';
+        };
+    </script>
+</body>
+</html>

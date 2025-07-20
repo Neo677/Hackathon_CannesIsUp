@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cannes Autrement</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header unifié -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="hackaton/logo.webp" alt="Cannes Autrement" class="logo">
+                <span class="logo-text">Cannes Autrement</span>
+            </a>
+            
+            <nav class="main-nav">
+                <a href="index_resa_1.html" class="nav-link">Arrière-Pays</a>
+                <a href="index_resa_2.html" class="nav-link">Cinéma</a>
+                <a href="index_resa_3.html" class="nav-link">Littoral</a>
+                <a href="index_resa_4.html" class="nav-link">Sport</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="auth-btn">Connexion</button>
+                <button class="auth-btn primary">Inscription</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section modifiée -->
+	<section class="hero">
+		<div class="hero-content">
+			<h1>L'Essence Authentique de Cannes</h1>
+			<p class="hero-subtitle">Entre mer et montagne, découvrez nos circuits exclusifs</p>
+		</div>
+	</section>
+	
+    <!-- Grid des activités -->
+    <main class="activity-grid">
+        <a href="index_resa_1.html" class="activity-card">
+            <div class="card-image" style="background-image: url('hackaton/velo_image.webp')"></div>
+            <h3 class="card-title">Arrière-Pays</h3>
+            <p class="card-desc">Villages perchés & sentiers nature</p>
+        </a>
+
+        <a href="index_resa_2.html" class="activity-card">
+            <div class="card-image" style="background-image: url('hackaton/cinema.jpg')"></div>
+            <h3 class="card-title">7ème Art</h3>
+            <p class="card-desc">Lieux mythiques & projections en plein air</p>
+        </a>
+
+        <a href="index_resa_3.html" class="activity-card">
+            <div class="card-image" style="background-image: url('hackaton/bike_beach.jpg')"></div>
+            <h3 class="card-title">Littoral</h3>
+            <p class="card-desc">Plages & activités nautiques</p>
+        </a>
+
+        <a href="index_resa_4.html" class="activity-card">
+            <div class="card-image" style="background-image: url('hackaton/vie_marine.jpg')"></div>
+            <h3 class="card-title">Ile de Lerins</h3>
+            <p class="card-desc">Défis sportifs & randonnées</p>
+        </a>
+    </main>
+
+    <!-- Nouvelle section carte -->
+    <section class="main-map">
+        <div class="container">
+            <h2>Découvrez Cannes autrement avec nos vélos électriques ! Parcourez la ville en toute liberté, explorez son patrimoine, sa nature et ses panoramas exceptionnels, loin des clichés. Une expérience fun, écologique et accessible toute l’année pour un tourisme plus authentique et responsable.</h2>
+            <div id="map"></div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+ITCA-0042
+feRm0sala
+
+
+
+Cannes:
+
+//			Circuit Cannes
+//			Circuit Cannes + alentours;
+//			Circuit Cannes + "Arriere pays";
+
+
+
+			Parcours Cinema;
+			Parcours Arriere Pays;
+			Parcours Sportif;
+			Parcours Classique;
+			Parcours Bord de Mer;
+
+
+			Parcours A la Carte;
+
+			Sportif:
+						Tour Croix de la Garde		(Cannes meme)		https://www.alltrails.com/fr/explore/trail/france/alpes-maritimes/tour-de-la-croix-des-gardes
+						Col de Theoule				(40 minutes)		https://www.alltrails.com/fr/explore/trail/france/alpes-maritimes/col-de-theoule-et-notre-dame-d-afrique-via-piste-des-saoumes
+						St Philippe/la verriere		(1h de Cannes)		https://www.alltrails.com/fr/explore/trail/france/alpes-maritimes/de-saint-philippe-au-domaine-de-la-verriere
+						Mont Saint Martin			(1h de Cannes)		https://www.visorando.com/randonnee-mont-saint-martin/
+						Sommet des Grosses Grues	(1h de Cannes)		https://www.visorando.com/randonnee-sommet-des-grosses-grues/
+						Piste du Grand Duc			(1h20 de Cannes)	https://www.alltrails.com/fr/explore/trail/france/alpes-maritimes/piste-du-grand-duc
+						Val de Siagne				(1h30h de Cannes)	https://www.alltrails.com/fr/explore/trail/france/alpes-maritimes/val-de-siagne

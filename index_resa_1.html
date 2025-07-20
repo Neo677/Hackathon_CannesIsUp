@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrière-Pays Cannois</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --olive: #808000;
+            --terracotta: #9C6644;
+            --lavande: #B2A4D4;
+            --sable: #F4EBD0;
+            --marine: #0A2342;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Roboto', sans-serif;
+        
+            --background-white: #f5f5f5;
+            --background-orange: #dfa626;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--marine);
+            background: var(--sable);
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+        
+        Header redessiné
+        .main-header {
+            background: var(--marine);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero {
+            background-image: url('hackaton/lavande.jpeg'); /* Chemin vers votre image */
+            background-size: cover; /* Pour couvrir toute la section */
+            background-position: center; /* Centrer l'image */
+            color: white; /* Couleur du texte */
+            padding: 150px 0; /* Espacement interne */
+            text-align: center; /* Centrer le texte */
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .villages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .village-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .village-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .village-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        #map {
+            height: 600px;
+            border-radius: 20px;
+            border: 3px solid var(--olive);
+            margin: 2rem 0;
+        }
+
+        .route-path {
+            stroke: var(--olive);
+            stroke-width: 4;
+            stroke-opacity: 0.7;
+            fill: none;
+        }
+
+        .bandeau {
+            display: flex;
+            align-items: center;
+            padding: 10px 30px;
+            background: #b5e5f886; /* Nouvelle couleur jaune */
+            color: #2c2c2c; /* Texte en noir */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Centre verticalement */
+            gap: 175px; /* Espacement entre les boutons */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            border: 2px solid var(--light);
+            background: none;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover img {
+            transform: scale(1.05); /* Légère augmentation au survol */
+        }
+
+        .rounded-icon{
+            border-radius: 50%;
+        }
+
+        .btn:hover {
+            transform: scale(1.05); /* Effet de zoom au survol */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* Ombre plus prononcée */
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid white;
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover::after {
+            opacity: 0.3; /* Bordure subtile au survol */
+        }
+
+        .btn-jaune {
+            background: #fffc00;
+            color: #2c2c2c !important;
+        }
+
+        .btn-jaune:hover {
+            background: #d9d200;
+        }
+
+        .btn-vert {
+            background: #349d5a; /* Nouvelle couleur verte */
+            color: white !important;
+        }
+
+        .btn-vert:hover {
+            background: #2a7d47; /* Version plus foncée pour le hover */
+        }
+
+        .auth-buttons {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-btn {
+            padding: 8px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .auth-btn:hover {
+            opacity: 0.9;
+            border-color: white;
+        }
+
+        .auth-btn.btn-vert {
+            background: #2a7d47;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .activity {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .add-to-cart {
+            background: var(--accent);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header unifié -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="hackaton/logo.webp" alt="Cannes Autrement" class="logo">
+                <span class="logo-text">Cannes Autrement</span>
+            </a>
+            
+            <nav class="main-nav">
+                <a href="index_resa_1.html" class="nav-link">Arrière-Pays</a>
+                <a href="index_resa_2.html" class="nav-link">Cinéma</a>
+                <a href="index_resa_3.html" class="nav-link">Littoral</a>
+                <a href="index_resa_4.html" class="nav-link">Sport</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="auth-btn">Connexion</button>
+                <button class="auth-btn primary">Inscription</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>L'Essence du Sud</h1>
+                <p class="subtitle">Découvrez nos parcours sportifs & culturels</p>
+            </div>
+        </section>
+
+        <section id="villages" class="villages-section">
+            <div class="container">
+                <h2>Nos circuits Arrière-Pays</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-image" style="background-image: url('hackaton/bike_pro.jpg')">
+                            <div class="eco-score">⭐ 4.8</div>
+                        </div>
+                        <div class="activity-details">
+                            <h3>Randonnée Gourdon</h3>
+                            <p>15km | D+ 600m | ⏱ 4h</p>
+                            <button class="add-to-cart" data-name="Randonnée Gourdon" data-price="45" data-eco="4.8">
+                                + €45
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-image" style="background-image: url('hackaton/la-citadelle-d-entrevaux.jpg')">
+                            <div class="eco-score">⭐ 4.9</div>
+                        </div>
+                        <div class="activity-details">
+                            <h3>Citadelle d'Entrevaux</h3>
+                            <p>Visite historique | Architecture militaire</p>
+                            <button class="add-to-cart" data-name="Entrevaux" data-price="35" data-eco="4.9">
+                                + €35
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="activity-image" style="background-image: url('hackaton/Roquesteron.jpeg')">
+                            <div class="eco-score">⭐ 4.7</div>
+                        </div>
+                        <div class="activity-details">
+                            <h3>Roquesteron</h3>
+                            <p>Marché provençal | Randonnée olfactive</p>
+                            <button class="add-to-cart" data-name="Roquesteron" data-price="40" data-eco="4.7">
+                                + €40
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="parcours" class="map-section">
+            <div class="container">
+                <h2>Notre circuit phare</h2>
+                <div id="map" style="width: 100%; height: 400px;"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <!-- Load Google Maps JavaScript API first -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZCZS0-1vbpq9mcS0kzE-E-jS-iEoJv8c&callback=initMap">
+    </script>
+    <!-- Then initialize the map -->
+    <script>
+        function initMap() {
+            // Check if Google Maps is loaded
+            if (typeof google === 'undefined') {
+                console.error('Google Maps API not loaded');
+                return;
+            }
+
+            // Check if map container exists
+            const mapElement = document.getElementById("map");
+            if (!mapElement) {
+                console.error('Map container not found');
+                return;
+            }
+
+            const map = new google.maps.Map(mapElement, {
+                zoom: 10,
+                center: { lat: 43.7208, lng: 6.9789 }, // Centre sur la région
+                mapTypeId: 'terrain',
+                styles: [
+                    {
+                        featureType: "poi",
+                        stylers: [{ visibility: "off" }] // Masque les POI
+                    },
+                    {
+                        featureType: "transit",
+                        stylers: [{ visibility: "off" }] // Masque les transports
+                    }
+                ]
+            });
+
+            // Liste des marqueurs
+            const locations = [
+                { lat: 43.5513, lng: 7.01195, title: "Cannes" },
+                { lat: 43.6973, lng: 7.1217, title: "Saint-Paul-de-Vence" },
+                { lat: 43.7206, lng: 6.9774, title: "Gourdon" },
+                { lat: 43.8833, lng: 7.0167, title: "Roquesteron" },
+                { lat: 43.9500, lng: 7.0000, title: "Touët-sur-Var" },
+                { lat: 43.9500, lng: 6.8167, title: "Entrevaux" },
+                { lat: 43.5989, lng: 6.9961, title: "Mougins" }
+            ];
+
+            // Créer un tableau de points pour le chemin
+            const pathCoordinates = locations.map(location => ({
+                lat: location.lat,
+                lng: location.lng
+            }));
+
+            // Créer le chemin qui relie tous les points
+            const path = new google.maps.Polyline({
+                path: pathCoordinates,
+                geodesic: true,
+                strokeColor: '#2ecc71',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            // Ajouter le chemin à la carte
+            path.setMap(map);
+
+            // Ajout des marqueurs personnalisés
+            locations.forEach(location => {
+                new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: location.title,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 8,
+                        fillColor: '#2ecc71',
+                        fillOpacity: 0.9,
+                        strokeColor: '#ffffff',
+                        strokeWeight: 2
+                    },
+                    animation: google.maps.Animation.DROP
+                });
+            });
+        }
+
+        // Add error handling for Google Maps loading
+        window.gm_authFailure = function() {
+            console.error('Google Maps authentication failed');
+            document.getElementById('map').innerHTML = 'Sorry, there was an error loading the map.';
+        };
+    </script>
+</body>
+</html>
